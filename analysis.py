@@ -8,4 +8,12 @@ parser.add_argument('--test', type=str, help='path to csv test file', default=os
 args = parser.parse_args()
 
 df_train = pd.read_csv(args.train)
-print(df_train)
+gb_store = df_train.groupby("store_nbr")
+
+path_dir_store_batches = os.path.join("data", "stores")
+if not os.path.exists(path_dir_store_batches):
+    os.makedirs(path_dir_store_batches)
+for k, gp in gb_store:
+    csv_file = "store" + str(k).zfill(2) + ".csv"
+    path_save_csv = os.path.join(path_dir_store_batches, csv_file)
+    gp.to_csv(path_save_csv, index=False)
