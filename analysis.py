@@ -7,7 +7,7 @@ parser.add_argument('--train', type=str, help='path to csv training file', defau
 parser.add_argument('--test', type=str, help='path to csv test file', default=os.path.join("data", "test.csv"))
 args = parser.parse_args()
 
-df_train = pd.read_csv(args.train)
+df_train = pd.read_csv(args.train, low_memory=False)
 gb_store = df_train.groupby("store_nbr")
 
 path_dir_store_batches = os.path.join("data", "stores")
