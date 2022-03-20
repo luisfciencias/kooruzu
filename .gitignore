@@ -133,3 +133,6 @@ dmypy.json
 
 # data/input
 data/
+
+# data/output
+output/
