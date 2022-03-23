@@ -1,1 +1,3 @@
 description: "Forecasting Analysis"
+
+data_columns: ['id', 'date', 'store_nbr', 'item_nbr', 'unit_sales', 'onpromotion']
