@@ -1,30 +1,6 @@
 import logging
-from surround import Assembler, Config, Estimator, Stage, State, RunMode
-
-
-class InputValidator(Stage):
-    def operate(self, state, config):
-        if state.text:
-            raise ValueError("'text' is not None")
-
-
-class DataInput(Stage):
-    def operate(self, state, config):
-        print("Data input stage ...")
-
-
-class DataProcess(Stage):
-    def operate(self, state, config):
-        print("Data processing stage ...")
-
-
-class ModelStage(Estimator):
-    def estimate(self, state, config):
-        print("Inference stage ...")
-        state.text = "Info here"
-
-    def fit(self, state, config):
-        print("No training implemented")
+from surround import Assembler, Config, State, RunMode
+from stages import DataInput, DataProcess, InputValidator, ModelStage
 
 
 class DataState(State):
