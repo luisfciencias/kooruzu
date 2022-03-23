@@ -1,21 +1,6 @@
 import logging
-from surround import Assembler, Config, State, RunMode
-from stages import DataInput, DataProcess, InputValidator, ModelStage, Scores
-
-
-class DataState(State):
-    text = None
-    df_store = None
-    df_test = None
-    df_stores_info = None
-    df_items = None
-    df_transactions = None
-    df_oil = None
-    df_holidays = None
-    df_units_sale = None
-    dict_info = None
-    y_true = None
-    y_pred = None
+from surround import Assembler, Config, RunMode
+from stages import DataInput, DataProcess, DataState, InputValidator, ModelStage, Scores
 
 
 if __name__ == "__main__":
