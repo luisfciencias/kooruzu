@@ -11,7 +11,8 @@ class ModelStage(Estimator):
     def fit(self, state, config):
         print("Training stage")
         # single item test
-        x = state.dict_info["105575"]
+        nominated_item = config["nominated_item"]
+        x = state.dict_info[nominated_item]
         h = 7
         y_train, y_test = x[0:len(x)-h], x[len(x)-h:]
         model = AutoReg(y_train.values, lags=7)
