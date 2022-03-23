@@ -5,8 +5,13 @@ from stages import DataInput, DataProcess, InputValidator, ModelStage
 
 class DataState(State):
     text = None
-    p1 = 3
-    p2 = "Info"
+    df_store = None
+    df_test = None
+    df_stores_info = None
+    df_items = None
+    df_transactions = None
+    df_oil = None
+    df_holidays = None
 
 
 if __name__ == "__main__":
@@ -18,5 +23,3 @@ if __name__ == "__main__":
     assembler.set_stages([InputValidator(), DataInput(), DataProcess(), ModelStage()])
     assembler.set_config(config=config_params)
     assembler.run(data_state, mode=RunMode.PREDICT)
-    print("data.p1 is {}".format(data_state.p1))
-    print("data.p2 is {}".format(data_state.p2))
