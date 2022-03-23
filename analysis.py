@@ -12,6 +12,10 @@ class DataState(State):
     df_transactions = None
     df_oil = None
     df_holidays = None
+    df_units_sale = None
+    dict_info = None
+    y_true = None
+    y_pred = None
 
 
 if __name__ == "__main__":
@@ -22,4 +26,4 @@ if __name__ == "__main__":
     assembler = Assembler("Forecasting Analysis")
     assembler.set_stages([InputValidator(), DataInput(), DataProcess(), ModelStage()])
     assembler.set_config(config=config_params)
-    assembler.run(data_state, mode=RunMode.PREDICT)
+    assembler.run(data_state, mode=RunMode.TRAIN)

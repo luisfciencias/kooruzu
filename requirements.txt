@@ -1,2 +1,5 @@
 surround==0.1.1
 pandas
+statsmodels==0.12.2
+numpy
+scikit-learn
