@@ -1,6 +1,6 @@
 import logging
 from surround import Assembler, Config, State, RunMode
-from stages import DataInput, DataProcess, InputValidator, ModelStage
+from stages import DataInput, DataProcess, InputValidator, ModelStage, Scores
 
 
 class DataState(State):
@@ -24,6 +24,6 @@ if __name__ == "__main__":
     data_state = DataState()
     config_params = Config(project_root=".", auto_load=True)
     assembler = Assembler("Forecasting Analysis")
-    assembler.set_stages([InputValidator(), DataInput(), DataProcess(), ModelStage()])
+    assembler.set_stages([InputValidator(), DataInput(), DataProcess(), ModelStage(), Scores()])
     assembler.set_config(config=config_params)
     assembler.run(data_state, mode=RunMode.TRAIN)
