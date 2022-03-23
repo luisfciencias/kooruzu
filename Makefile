@@ -7,6 +7,9 @@ help:	  ## shows this help menu
 analysis: ## main analysis
 	python analysis.py
 
+install:  ## install requirements
+	pip install -r requirements.txt
+
 split:    ## group by data set by store number
 	python split_stores.py
  
